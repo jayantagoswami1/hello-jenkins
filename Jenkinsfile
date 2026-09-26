@@ -1,7 +1,7 @@
 pipeline {
 agent any
 
-```
+
 stages {
 
     stage('Maven Configuration Check') {
@@ -54,6 +54,6 @@ stages {
         }
     }
 }
-```
+
 
 }
