@@ -1,14 +1,14 @@
 pipeline {
 agent any
 
-
+```
 stages {
 
-    stage('Environment Check') {
+    stage('Maven Configuration Check') {
         steps {
             bat '''
                 echo ==============================
-                echo WINDOWS USER
+                echo USER
                 echo ==============================
                 whoami
 
@@ -23,22 +23,21 @@ stages {
                 mvn -version
 
                 echo ==============================
-                echo SETTINGS.XML
+                echo SETTINGS FILE
                 echo ==============================
                 if exist "%USERPROFILE%\\.m2\\settings.xml" (
                     echo settings.xml EXISTS
+                    echo.
+                    echo Checking connectedApp:
+                    findstr /I "connectedApp" "%USERPROFILE%\\.m2\\settings.xml"
                 ) else (
                     echo settings.xml DOES NOT EXIST
                 )
 
                 echo ==============================
-                echo CONNECTED APP SERVER CHECK
+                echo MAVEN EFFECTIVE SETTINGS
                 echo ==============================
-                if exist "%USERPROFILE%\\.m2\\settings.xml" (
-                    findstr /I "<id>connectedApp</id>" "%USERPROFILE%\\.m2\\settings.xml"
-                ) else (
-                    echo No settings.xml found
-                )
+                mvn help:effective-settings -DshowPasswords=false
             '''
         }
     }
@@ -55,6 +54,6 @@ stages {
         }
     }
 }
-
+```
 
 }
