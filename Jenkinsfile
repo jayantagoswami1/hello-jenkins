@@ -44,7 +44,7 @@ stages {
 
     stage('Publish to Exchange') {
 steps {
-bat 'mvn -s "C:\Users\07622I744\.m2\settings.xml" clean deploy'
+bat 'mvn -s "C:\\Users\\07622I744\\.m2\\settings.xml" clean deploy'
 }
 }
 
