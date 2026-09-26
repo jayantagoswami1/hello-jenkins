@@ -1,4 +1,4 @@
-```groovy
+groovy
 stage('Maven Configuration Check') {
     steps {
         bat '''
