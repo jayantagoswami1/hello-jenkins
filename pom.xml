@@ -4,7 +4,7 @@
 
 	<groupId>64c200c4-3602-4166-b0c7-ebc1e820053c</groupId>
 	<artifactId>hello-jenkins</artifactId>
-	<version>1.0.16</version>
+	<version>1.0.17</version>
 	<packaging>mule-application</packaging>
 
 	<name>hello-jenkins</name>
@@ -15,6 +15,7 @@
 
 		<app.runtime>4.12.2</app.runtime>
 		<mule.maven.plugin.version>4.10.1</mule.maven.plugin.version>
+		<munit.version>3.7.3</munit.version>
 	</properties>
 
 	<build>
@@ -42,6 +43,29 @@
 					</cloudhub2Deployment>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>com.mulesoft.munit.tools</groupId>
+				<artifactId>munit-maven-plugin</artifactId>
+				<version>${munit.version}</version>
+				<executions>
+					<execution>
+						<id>test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>test</goal>
+							<goal>coverage-report</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<coverage>
+						<runCoverage>true</runCoverage>
+						<formats>
+							<format>html</format>
+						</formats>
+					</coverage>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -57,6 +81,26 @@
 			<artifactId>mule-sockets-connector</artifactId>
 			<version>1.2.9</version>
 			<classifier>mule-plugin</classifier>
+		</dependency>
+		<dependency>
+			<groupId>com.mulesoft.munit</groupId>
+			<artifactId>munit-runner</artifactId>
+			<version>3.7.3</version>
+			<classifier>mule-plugin</classifier>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.mulesoft.munit</groupId>
+			<artifactId>munit-tools</artifactId>
+			<version>3.7.3</version>
+			<classifier>mule-plugin</classifier>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mule.weave</groupId>
+			<artifactId>assertions</artifactId>
+			<version>1.2.1</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
@@ -90,7 +134,7 @@
 		<repository>
 			<id>anypoint-exchange-v3</id>
 			<name>Corporate Repository</name>
-	<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/${project.groupId}/maven</url>
+			<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/${project.groupId}/maven</url>
 			<layout>default</layout>
 		</repository>
 	</distributionManagement>
