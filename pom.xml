@@ -4,7 +4,7 @@
 
 	<groupId>64c200c4-3602-4166-b0c7-ebc1e820053c</groupId>
 	<artifactId>hello-jenkins</artifactId>
-	<version>1.0.19</version>
+	<version>1.0.20</version>
 	<packaging>mule-application</packaging>
 
 	<name>hello-jenkins</name>
@@ -36,7 +36,7 @@
 						<provider>MC</provider>
 						<environment>Sandbox</environment>
 						<target>Cloudhub-US-East-2</target>
-						<server>connectedApp</server>
+						<server>anypoint-exchange-v3</server>
 						<applicationName>hello-jenkins1</applicationName>
 						<replicas>1</replicas>
 						<vCores>0.1</vCores>
