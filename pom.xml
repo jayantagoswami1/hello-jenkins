@@ -4,7 +4,7 @@
 
 	<groupId>64c200c4-3602-4166-b0c7-ebc1e820053c</groupId>
 	<artifactId>hello-jenkins</artifactId>
-	<version>1.0.18</version>
+	<version>1.0.19</version>
 	<packaging>mule-application</packaging>
 
 	<name>hello-jenkins</name>
