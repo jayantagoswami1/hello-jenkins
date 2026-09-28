@@ -13,7 +13,15 @@
 			<flow-ref doc:name="Flow-ref to hello-jenkinsFlow" doc:id="52b8478e-89bf-4973-803d-e7021d61ba15" name="hello-jenkinsFlow"/>
 		</munit:execution>
 		<munit:validation>
-			<munit-tools:assert-equals doc:name="Assert equals" doc:id="948e8fff-aeef-4da5-ba9a-f4246982d177" actual="#[payload.message]" expected="#['Hello Jenkins20']"/>
+			<munit-tools:assert-equals doc:name="Assert equals" doc:id="948e8fff-aeef-4da5-ba9a-f4246982d177" actual="#[payload.message]" expected="#['Hello Jenkins21']"/>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="hi-jenkins-test-suiteTest" doc:id="e5057436-3337-44fc-9fb8-c82c5eb69c22" >
+		<munit:execution >
+			<flow-ref doc:name="Flow Reference" doc:id="c07fa8f4-b94a-4911-b032-a722d0614881" name="hi-jenkinsFlow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-equals doc:name="Assert equals" doc:id="180766d5-399d-4d3f-b838-8df32568ca6e" actual="payload.message" expected="'Hi Jenkins21'"/>
 		</munit:validation>
 	</munit:test>
 

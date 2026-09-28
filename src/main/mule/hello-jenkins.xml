@@ -16,7 +16,20 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 output application/json
 ---
 {
-	"message":"Hello Jenkins20"
+	"message":"Hello Jenkins21"
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	<flow name="hi-jenkinsFlow" doc:id="dbc2a3d6-0f46-4a04-b8ef-12407c09ffb2" >
+		<http:listener doc:name="Listener" doc:id="f179fd8e-c1e2-46ae-9398-f050c6cc2454" config-ref="HTTP_Listener_config" path="/hijenkins"/>
+		<ee:transform doc:name="Transform Message" doc:id="2e768650-66ba-4aa1-a5c8-a024a55270f2" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	"message":"Hi Jenkins21"
 }]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
