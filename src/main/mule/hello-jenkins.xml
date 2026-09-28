@@ -16,7 +16,7 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 output application/json
 ---
 {
-	"message":"Hello Jenkins21"
+	"message":"Hello Jenkins"
 }]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
@@ -29,7 +29,7 @@ output application/json
 output application/json
 ---
 {
-	"message":"Hi Jenkins21"
+	"message":"Hi Jenkins"
 }]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
